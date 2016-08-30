@@ -3,6 +3,14 @@ var app = angular.module('klmapp',['ngResource', 'ngRoute'])
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/', {
+            templateUrl: 'partials/udata-form.html',
+            controller: 'AddPassengerInfoCtrl'
+        })
+        .when('/todo', {
+            templateUrl: 'partials/todo.html',
+            controller: 'ToDOCtrl'
+        })
+        .when('/admin/view', {
             templateUrl: 'partials/admin-view.html',
             controller: 'AdminViewCtrl'
         })
@@ -36,6 +44,10 @@ app.controller('AdminViewCtrl', ['$scope', '$resource', function($scope, $resour
 	})
 }])
 
+app.controller('ToDOCtrl', ['$scope', '$resource', function($scope, $resource){
+	var Usrdata = $resource('/api/udata')
+}])
+
 app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location', function($scope, $resource, $location){
     $scope.titledd = ["Mr.","Mrs."]
     $scope.adults = 1
@@ -46,7 +58,22 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location', function($
     $scope.save = function(){
         var Usrdata = $resource('/api/udata')
         Usrdata.save($scope.usrdata, function(){
-            $location.path('/')
+            $location.path('/admin/view')
+        })
+    }
+}])
+
+app.controller('AddPassengerInfoCtrl', ['$scope', '$resource', '$location', function($scope, $resource, $location){
+    $scope.titledd = ["Mr.","Mrs."]
+    $scope.adults = 1
+    $scope.child = 0
+    $scope.babies = 0
+    $scope.cid = Math.floor(100000000000000000 + Math.random() * 900000000000000000)
+    
+    $scope.save = function(){
+        var Usrdata = $resource('/api/udata')
+        Usrdata.save($scope.usrdata, function(){
+            $location.path('/todo')
         })
     }
 }])
@@ -64,7 +91,7 @@ app.controller('EditUsrDataCtrl', ['$scope', '$resource', '$location', '$routePa
 
         $scope.save = function(){
             Usrdata.update($scope.usrdata, function(){
-                $location.path('/')
+                $location.path('/admin/view')
             })
         }
 }])
@@ -79,7 +106,7 @@ app.controller('DeleteUsrDataCtrl', ['$scope', '$resource', '$location', '$route
 
         $scope.delete = function(){
             Usrdata.delete({ id: $routeParams.id }, function(usrdata){
-                $location.path('/');
+                $location.path('/admin/view');
             });
         }
 }])
