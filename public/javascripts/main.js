@@ -10,6 +10,10 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/todo.html',
             controller: 'ToDOCtrl'
         })
+        .when('/fetch/data/:id', {
+            templateUrl: 'partials/send-data.html',
+            controller: 'SendDataCtrl'
+        })
         .when('/admin/view', {
             templateUrl: 'partials/admin-view.html',
             controller: 'AdminViewCtrl'
@@ -26,9 +30,9 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/del-udata.html',
             controller: 'DeleteUsrDataCtrl'
         })
-        .otherwise({
+        /*.otherwise({
             redirectTo: '/'
-        });
+        });*/
 }]);
 
 app.config(['$resourceProvider', function($resourceProvider) {
@@ -36,16 +40,39 @@ app.config(['$resourceProvider', function($resourceProvider) {
   $resourceProvider.defaults.stripTrailingSlashes = false
 }]);
 
+app.controller('AddPassengerInfoCtrl', ['$scope', '$resource', '$location', function($scope, $resource, $location){
+    $scope.titledd = ["Mr.","Mrs."]
+    $scope.adults = 1
+    $scope.child = 0
+    $scope.babies = 0
+    $scope.cid = Math.floor(100000000000000000 + Math.random() * 900000000000000000)
+    
+    $scope.save = function(){
+        var Usrdata = $resource('/api/udata')
+        Usrdata.save($scope.usrdata, function(){
+            $location.path('/todo')
+        })
+    }
+}])
+
+app.controller('ToDOCtrl', ['$scope', '$resource', function($scope, $resource){
+	$scope.messege = "TODO"
+}])
+
+app.controller('SendDataCtrl', ['$scope', '$resource', '$location', '$routeParams',
+    function($scope, $resource, $location, $routeParams){   
+        var Usrdata = $resource('/api/udata/:id')
+
+        Usrdata.get({ id: $routeParams.id }, function(usrdata){
+            $scope.usrdata = usrdata
+        })
+}])
 
 app.controller('AdminViewCtrl', ['$scope', '$resource', function($scope, $resource){
 	var Usrdata = $resource('/api/udata')
 	Usrdata.query(function(udata){
 		$scope.udata = udata
 	})
-}])
-
-app.controller('ToDOCtrl', ['$scope', '$resource', function($scope, $resource){
-	var Usrdata = $resource('/api/udata')
 }])
 
 app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location', function($scope, $resource, $location){
@@ -59,21 +86,6 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location', function($
         var Usrdata = $resource('/api/udata')
         Usrdata.save($scope.usrdata, function(){
             $location.path('/admin/view')
-        })
-    }
-}])
-
-app.controller('AddPassengerInfoCtrl', ['$scope', '$resource', '$location', function($scope, $resource, $location){
-    $scope.titledd = ["Mr.","Mrs."]
-    $scope.adults = 1
-    $scope.child = 0
-    $scope.babies = 0
-    $scope.cid = Math.floor(100000000000000000 + Math.random() * 900000000000000000)
-    
-    $scope.save = function(){
-        var Usrdata = $resource('/api/udata')
-        Usrdata.save($scope.usrdata, function(){
-            $location.path('/todo')
         })
     }
 }])
