@@ -61,7 +61,7 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
         $scope.babies = $routeParams.passenger.split('_')[2]
         $scope.usrdata = {
         	'sender' : $routeParams.sender, 
-        	'pessenger' : $routeParams.passenger,
+        	'passenger' : $routeParams.passenger,
         	'convid' : Math.floor(100000000000000000 + Math.random() * 900000000000000000)
         }
         
