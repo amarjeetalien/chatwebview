@@ -1,4 +1,5 @@
 var app = angular.module('klmapp',['ngResource', 'ngRoute'])
+var expapp = express()
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
@@ -67,7 +68,10 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
         $scope.save = function(){
             var Usrdata = $resource('/api/udata')
             Usrdata.save($scope.usrdata, function(){
-                $location.path('/fetch/data/' + $routeParams.sender)
+            	expaap.post('https://hidden-fjord-97332.herokuapp.com/startpayment',function(req, res){
+                    res.send($routeParams.sender)
+                })
+                //$location.path('/fetch/data/' + $routeParams.sender)
             })
     }
 }])
