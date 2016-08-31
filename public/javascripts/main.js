@@ -26,6 +26,9 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/del-udata.html',
             controller: 'DeleteUsrDataCtrl'
         })
+        .otherwise({
+            redirectTo: '/admin/view'
+        });
 }]);
 
 app.config(['$resourceProvider', function($resourceProvider) {
