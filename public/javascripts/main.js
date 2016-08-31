@@ -2,7 +2,7 @@ var app = angular.module('klmapp',['ngResource', 'ngRoute'])
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
-        .when('/fetch/data/:id', {
+        .when('/fetch/data/:sid', {
             templateUrl: 'partials/send-data.html',
             controller: 'SendDataCtrl'
         })
@@ -39,9 +39,8 @@ app.config(['$resourceProvider', function($resourceProvider) {
 
 app.controller('SendDataCtrl', ['$scope', '$resource', '$location', '$routeParams',
     function($scope, $resource, $location, $routeParams){   
-        var Usrdata = $resource('/api/spdata/:id')
-
-        Usrdata.get({ id: $routeParams.id }, function(usrdata){
+        var Usrdata = $resource('/api/spdata/:sid')
+        Usrdata.get({sid: $routeParams.sid }, function(usrdata){
             $scope.usrdata = usrdata
         })
 }])
