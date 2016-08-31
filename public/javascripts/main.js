@@ -53,8 +53,8 @@ app.controller('AdminViewCtrl', ['$scope', '$resource', function($scope, $resour
 	})
 }])
 
-app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routeParams', '$http', '$httpParamSerializerJQLike', 
-    function($scope, $resource, $location,  $routeParams, $http, $httpParamSerializerJQLike){
+app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routeParams', '$http', '$httpParamSerializerJQLike', '$window'
+    function($scope, $resource, $location,  $routeParams, $http, $httpParamSerializerJQLike, $window){
         $scope.titledd = ["Mr.","Mrs."]
         $scope.adults = $routeParams.passenger.split('_')[0]
         $scope.child = $routeParams.passenger.split('_')[1]
@@ -74,7 +74,7 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(response){
                 	console.log('response : ====> ' + response)
-                    	$location.path('https://www.messenger.com/closeWindow/?image_url=http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png&display_text=startpayment')
+                    	$window.location.href('https://www.messenger.com/closeWindow/?image_url=http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png&display_text=startpayment')
                 })
             })
     }
