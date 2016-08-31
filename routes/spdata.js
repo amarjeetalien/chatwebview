@@ -7,7 +7,8 @@ var collection = db.get('passenger_details')
 
 router.get('/:sid', function(req, res){
 	console.log(" ========> req.params.sid : " +  req.params.sid)
-	collection.findOne({_sid: req.params.sid}, function(err, udata){
+	collection.find( { $where: function(err, udata) {return (this._sid == req.params.sid)} , 
+	function(err, udata){
 		if (err) {throw err}
 		res.json(udata)
 	})
