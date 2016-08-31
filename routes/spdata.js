@@ -6,12 +6,11 @@ var db = monk('klmdbuser:klmadmin@ds147905.mlab.com:47905/klmdemodb')
 var collection = db.get('passenger_details')
 
 router.get('/:sid', function(req, res){
-	console.log(" ========> req.params.sid : " +  req.params.sid)
-	collection.find( { $where: function(err, udata) {return (this._sid == req.params.sid)} , 
-	function(err, udata){
+	collection.find({}, function(err, udata){
+		console.log(udata)
 		if (err) {throw err}
+		console.log(udata)
 		res.json(udata)
-		}
 	})
 })
 
