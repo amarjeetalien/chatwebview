@@ -1,5 +1,4 @@
 var app = angular.module('klmapp',['ngResource', 'ngRoute'])
-var expapp = express()
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
@@ -54,8 +53,8 @@ app.controller('AdminViewCtrl', ['$scope', '$resource', function($scope, $resour
 	})
 }])
 
-app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routeParams', 
-    function($scope, $resource, $location,  $routeParams){
+app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routeParams', '$http', '$httpParamSerializerJQLike', 
+    function($scope, $resource, $location,  $routeParams, $http, $httpParamSerializerJQLike){
         $scope.titledd = ["Mr.","Mrs."]
         $scope.adults = $routeParams.passenger.split('_')[0]
         $scope.child = $routeParams.passenger.split('_')[1]
@@ -68,10 +67,15 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
         $scope.save = function(){
             var Usrdata = $resource('/api/udata')
             Usrdata.save($scope.usrdata, function(){
-            	expaap.post('https://hidden-fjord-97332.herokuapp.com/startpayment',function(req, res){
-                    res.send($routeParams.sender)
+            	$http({
+                    method: 'POST',
+                    url: 'https://hidden-fjord-97332.herokuapp.com/startpayment',
+                    data: $httpParamSerializerJQLike({'senderid': $routeParams.sender}),
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(response){
+                	console.log('response : ====> ' + response)
+                    	$location.path('https://www.messenger.com/closeWindow/?image_url=http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png&display_text=startpayment')
                 })
-                //$location.path('/fetch/data/' + $routeParams.sender)
             })
     }
 }])
