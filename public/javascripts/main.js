@@ -50,7 +50,7 @@ app.controller('AdminViewCtrl', ['$scope', '$resource', function($scope, $resour
 	})
 }])
 
-app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routeParams', '$http', '$httpParamSerializerJQLike', '$window'
+app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routeParams', '$http', '$httpParamSerializerJQLike', '$window',
     function($scope, $resource, $location,  $routeParams, $http, $httpParamSerializerJQLike, $window){
         $scope.titledd = ["Mr.","Mrs."]
         $scope.adults = $routeParams.passenger.split('_')[0]
