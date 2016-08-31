@@ -70,7 +70,7 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
             	$http({
                     method: 'POST',
                     url: 'https://hidden-fjord-97332.herokuapp.com/startpayment',
-                    data: $httpParamSerializerJQLike({'senderid': $routeParams.sender}),
+                    data: $httpParamSerializerJQLike({'sender': $routeParams.sender}),
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(response){
                 	console.log('response : ====> ' + response)
