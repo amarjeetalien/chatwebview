@@ -5,8 +5,9 @@ var monk = require('monk')
 var db = monk('klmdbuser:klmadmin@ds147905.mlab.com:47905/klmdemodb')
 var collection = db.get('passenger_details')
 
-router.get('/:id', function(req, res){
-	collection.findOne({_id: req.params.id}, function(err, udata){
+router.get('/:sid', function(req, res){
+	console.log(" ========> req.params.sid : " +  req.params.sid)
+	collection.findOne({_sid: req.params.sid}, function(err, udata){
 		if (err) {throw err}
 		res.json(udata)
 	})
