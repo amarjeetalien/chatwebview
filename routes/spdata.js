@@ -11,6 +11,7 @@ router.get('/:sid', function(req, res){
 	function(err, udata){
 		if (err) {throw err}
 		res.json(udata)
+		}
 	})
 })
 
