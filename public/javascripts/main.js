@@ -60,10 +60,9 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
         $scope.child = $routeParams.passenger.split('_')[1]
         $scope.babies = $routeParams.passenger.split('_')[2]
         $scope.cid = Math.floor(100000000000000000 + Math.random() * 900000000000000000)
+        $scope.usrdata.push('' : $routeParams.sender)
+        $scope.usrdata.push('' : $routeParams.passenger)
         
-        $scope.senderid = $routeParams.sender
-        $scope.passenger = $routeParams.passenger
-
         $scope.save = function(){
             var Usrdata = $resource('/api/udata')
             Usrdata.save($scope.usrdata, function(){
