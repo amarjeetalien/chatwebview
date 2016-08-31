@@ -18,6 +18,7 @@ router.post('/', function(req, res){
 	console.log("req.body.convid : " + req.body.convid + "\n req.params.convid : " + req.params.convid)
 	collection.insert({
 		convid: req.body.convid,
+		sender: req.body.sender,
 		title: req.body.title,
 		fname: req.body.fname,
 		mname: req.body.mname,
@@ -27,7 +28,7 @@ router.post('/', function(req, res){
 		offerfbm: req.body.offerfbm,
 		fbluenum: req.body.fbluenum,
 		updatefbm: req.body.updatefbm,
-		passengertype: req.body.passengertype
+		passengertype: req.body.passenger
 	},function(err, udata){
 		if (err) {throw err}
 		res.json(udata)
