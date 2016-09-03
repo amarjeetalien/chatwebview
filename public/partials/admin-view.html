@@ -2,18 +2,22 @@
 <p>If no data is shown below, it means MongoDB integration is not working.</p>
 <ul ng-repeat='usrdata in udata'>
 	<li>
-		<b><a href="/#/udata/{{usrdata._id}}">{{usrdata._id}}</a></b>
+		<b><a href="/#/udata/{{usrdata._id}}">{{usrdata.convid}}</a></b>
 		<a href="/#/delete-udata/{{usrdata._id}}"><i class="glyphicon glyphicon-remove"></i></a>
 		<ul>
-			<li>title: {{usrdata.title}}</li>
-			<li>fname: {{usrdata.fname}}</li>
-			<li>lname: {{usrdata.lname}}</li>
-			<li>ffnum: {{usrdata.ffnum}}</li>
-			<li>email: {{usrdata.email}}</li>
-			<li>offerfbm: {{usrdata.offerfbm}}</li>
-			<li>fbluenum: {{usrdata.fbluenum}}</li>
-			<li>updatefbm: {{usrdata.updatefbm}}</li>
-			<li>passengertype: {{usrdata.passengertype}}</li>
+			<li>Sender : {{usrdata.sender}}</li>
+			<li>Date : {{usrdata.date}}</li>
+			<li>Title : {{usrdata.title}}</li>
+			<li>First Name : {{usrdata.fname}}</li>
+			<li>Last Nname : {{usrdata.lname}}</li>
+			<li>Frequent Flyer Number : {{usrdata.ffnum}}</li>
+			<li>Flying Blue Number : {{usrdata.fbluenum}}</li>
+			<li>Email : {{usrdata.email}}</li>
+			<li>UpdateOnFbm : {{usrdata.updatefbm}}</li>
+			<li>OfferOnFbm : {{usrdata.offerfbm}}</li>
+			<li>Adults : {{usrdata.updatefbm}}</li>
+			<li>Child : {{usrdata.child}}</li>
+			<li>Babies : {{usrdata.babies}}</li>
 		</ul>
 	</li>
 </ul>
