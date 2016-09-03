@@ -15,10 +15,15 @@ router.get('/', function(req, res){
 })
 
 router.post('/', function(req, res){
-	console.log("req.body.convid : " + req.body.convid + "\n req.params.convid : " + req.params.convid)
 	collection.insert({
 		convid: req.body.convid,
 		sender: req.body.sender,
+		date : req.body.date,
+        	chkffnum : req.body.chkffnum,
+        	chkfbluenum : req.body.chkfbluenum,
+        	adults : req.body.adults,
+        	child : req.body.child,
+        	babies : req.body.babies,
 		title: req.body.title,
 		fname: req.body.fname,
 		mname: req.body.mname,
@@ -48,6 +53,13 @@ router.put('/:id', function(req, res){
 	},
 	{
 		convid: req.body.convid,
+		sender: req.body.sender,
+		date : req.body.date,
+        	chkffnum : req.body.chkffnum,
+        	chkfbluenum : req.body.chkfbluenum,
+        	adults : req.body.adults,
+        	child : req.body.child,
+        	babies : req.body.babies,
 		title: req.body.title,
 		fname: req.body.fname,
 		mname: req.body.mname,
