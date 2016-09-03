@@ -54,14 +54,20 @@ app.controller('AdminViewCtrl', ['$scope', '$resource', function($scope, $resour
 
 app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routeParams', '$http', '$httpParamSerializerJQLike', '$window',
     function($scope, $resource, $location,  $routeParams, $http, $httpParamSerializerJQLike, $window){
+        ptype = $routeParams.passenger.split('_')
         $scope.titledd = ["Mr.","Mrs."]
-        $scope.adults = $routeParams.passenger.split('_')[0]
-        $scope.child = $routeParams.passenger.split('_')[1]
-        $scope.babies = $routeParams.passenger.split('_')[2]
         $scope.usrdata = {
-        	'sender' : $routeParams.sender, 
-        	'passenger' : $routeParams.passenger,
-        	'convid' : Math.floor(100000000000000000 + Math.random() * 900000000000000000)
+        	sender : $routeParams.sender, 
+        	passenger : $routeParams.passenger,
+        	convid : Math.floor(100000000000000000 + Math.random() * 900000000000000000),
+        	date : new Date(),
+        	showffnum : false,
+        	showfblue : false,
+        	chkffnum : false,
+        	chkfbluenum : false,
+        	adults : ptype[0],
+        	child : ptype[1],
+        	babies : ptype[2]
         }
         
         $scope.save = function(){
