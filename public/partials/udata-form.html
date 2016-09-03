@@ -20,11 +20,17 @@
 			<label for="l_name">Last Name</label>
 			<input id="l_name" class="form-control" ng-model="usrdata.lname">
 		</div>
-		<div class="checkbox">
-		  <label><input type="checkbox" ng-model="usrdata.ffnum">Are you a member of frequent flyer programme?</label>
+		<div class="checkbox form-group">
+		  <label><input type="checkbox" class="form-control" ng-click="showffnum = !showffnum" ng-model="usrdata.chkffnum">Are you a member of frequent flyer programme?</label>
 		</div>
-		<div class="checkbox">
-		  <label><input type="checkbox" ng-model="usrdata.fbluenum">Are you a member of BlueBiz programme?</label>
+		<div class="form-group"  ng-show="showffnum">
+			<input id="ff_num" class="form-control" ng-model="usrdata.ffnum">
+		</div>
+		<div class="checkbox form-group">
+		  <label><input type="checkbox" class="form-control" ng-click="showfblue = !showfblue" ng-model="usrdata.chkfbluenum">Are you a member of BlueBiz programme?</label>
+		</div>
+		<div class="form-group" ng-show="showfblue">
+			<input id="f_blue" class="form-control" ng-model="usrdata.fbluenum">
 		</div>
 
 		<p><h3>Contact Information</h3></p>
@@ -45,7 +51,7 @@
 		  <label><input type="checkbox" ng-model="usrdata.offerfbm" value="">Inform me via Messenger about cool offers and deals</label>
 		</div>
 
-		<input type="button" id="save_btn" class="btn btn-primary" value="Confirm Passanger {{adults}}" ng-click="save()">
+		<input type="button" id="save_btn" class="btn btn-primary" value="Confirm Passanger {{usrdata.adults}}" ng-click="save()">
 	</form>
 
 
