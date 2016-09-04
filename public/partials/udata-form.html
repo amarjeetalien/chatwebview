@@ -49,7 +49,7 @@
 		<div class="form-group">
 			<label for="c_email" class="control-label">Confirm Email Address</label>
 			<input id="c_email"  type="email" class="form-control" name="cemail" placeholder="abc@xyz.com" ng-model="usrdata.cemail" ng-match="usrdata.email">
-			<span style="color:red" data-ng-show="pasdtls.cemail.$error.match">Emails don't match.</span>
+			<span style="color:red" ng-show="pasdtls.cemail.$error.match">Emails don't match.</span>
 		</div>
 
 		<p><h3>Update via Facebook Messenger</h3></p>
@@ -60,7 +60,7 @@
 		  <label class="control-label"><input type="checkbox" ng-model="usrdata.offerfbm" value="">Inform me via Messenger about cool offers and deals</label>
 		</div>
 
-		<input type="button" id="save_btn" class="btn btn-primary" value="Confirm Passanger {{usrdata.adults}}" ng-click="save()">
+		<input type="button" id="save_btn" class="btn btn-primary" value="Confirm Passanger {{usrdata.adults}}" ng-click="save()" ng-disabled="pasdtls$invalid">
 	</form>
 
 
