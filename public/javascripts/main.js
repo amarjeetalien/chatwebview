@@ -60,7 +60,7 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
         	sender : $routeParams.sender, 
         	passenger : $routeParams.passenger,
         	convid : Math.floor(100000000000000000 + Math.random() * 900000000000000000),
-        	date : new Date().valueOf(),
+        	date : new Date(),
         	showffnum : false,
         	showfblue : false,
         	chkffnum : false,
