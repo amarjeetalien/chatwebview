@@ -9,28 +9,29 @@
 			<p>Adults_Child_Babies : {{usrdata.passenger}}</p>
 		</div>
 		<div class="form-group">
-			<label for="title">Title</label>
+			<label for="title" class="control-label">Title</label>
 			<select id="title" class="form-control" name="ftitle" ng-model="usrdata.title" ng-options="x for x in titledd" required>
 				<option value="">Title</option>
 			</select>
-			<span ng-show="pasdtls.ftitle.$touched && pasdtls.ftitle.$invalid">This is required.</span>
+			<span  class="glyphicon glyphicon-warning-sign form-control-feedback" ng-show="pasdtls.ftitle.$touched && pasdtls.ftitle.$invalid"></span>
 		</div>
 		<div class="form-group">
-			<label for="f_name">First Name</label>
+			<label for="f_name" class="control-label">First Name</label>
 			<input id="f_name" class="form-control" placeholder="First Name" ng-model="usrdata.fname" required>
+			<span  class="glyphicon glyphicon-warning-sign form-control-feedback" ng-show="pasdtls.ftitle.$touched && pasdtls.ftitle.$invalid"></span>
 		</div>
 		<div class="form-group">
-			<label for="l_name">Last Name</label>
+			<label for="l_name" class="control-label">Last Name</label>
 			<input id="l_name" class="form-control" placeholder="Last Name" ng-model="usrdata.lname" required>
 		</div>
 		<div class="checkbox form-group">
-		  <label><input type="checkbox" ng-click="showffnum = !showffnum" ng-model="usrdata.chkffnum">Are you a member of frequent flyer programme?</label>
+		  <label class="control-label"><input type="checkbox" ng-click="showffnum = !showffnum" ng-model="usrdata.chkffnum">Are you a member of frequent flyer programme?</label>
 		</div>
 		<div class="form-group"  ng-show="showffnum">
 			<input id="ff_num" class="form-control" placeholder="Frequent Flyer Number" ng-model="usrdata.ffnum"  required>
 		</div>
 		<div class="checkbox form-group">
-		  <label><input type="checkbox" ng-click="showfblue = !showfblue" ng-model="usrdata.chkfbluenum">Are you a member of BlueBiz programme?</label>
+		  <label class="control-label"><input type="checkbox" ng-click="showfblue = !showfblue" ng-model="usrdata.chkfbluenum">Are you a member of BlueBiz programme?</label>
 		</div>
 		<div class="form-group" ng-show="showfblue">
 			<input id="f_blue" class="form-control" placeholder="Flying Blue Number" ng-model="usrdata.fbluenum"  required>
@@ -38,20 +39,20 @@
 
 		<p><h3>Contact Information</h3></p>
 		<div class="form-group">
-			<label for="u_email">Email Address</label>
+			<label for="u_email" class="control-label">Email Address</label>
 			<input id="u_email"  type="email" class="form-control" placeholder="abc@xyz.com" ng-model="usrdata.email">
 		</div>
 		<div class="form-group">
-			<label for="c_email">Confirm Email Address</label>
+			<label for="c_email" class="control-label">Confirm Email Address</label>
 			<input id="c_email"  type="email" class="form-control" placeholder="abc@xyz.com" ng-model="usrdata.cemail">
 		</div>
 
 		<p><h3>Update via Facebook Messenger</h3></p>
 		<div class="checkbox">
-		  <label><input type="checkbox" ng-model="usrdata.updatefbm" value="">Send flight updates via Messenger</label>
+		  <label class="control-label"><input type="checkbox" ng-model="usrdata.updatefbm" value="">Send flight updates via Messenger</label>
 		</div>
 		<div class="checkbox">
-		  <label><input type="checkbox" ng-model="usrdata.offerfbm" value="">Inform me via Messenger about cool offers and deals</label>
+		  <label class="control-label"><input type="checkbox" ng-model="usrdata.offerfbm" value="">Inform me via Messenger about cool offers and deals</label>
 		</div>
 
 		<input type="button" id="save_btn" class="btn btn-primary" value="Confirm Passanger {{usrdata.adults}}" ng-click="save()">
