@@ -13,38 +13,43 @@
 			<select id="title" class="form-control" name="ftitle" ng-model="usrdata.title" ng-options="x for x in titledd" required>
 				<option value="">Title</option>
 			</select>
-			<span  class="glyphicon glyphicon-warning-sign form-control-feedback" ng-show="pasdtls.ftitle.$touched && pasdtls.ftitle.$invalid"></span>
+			<span style="color:red" ng-show="pasdtls.ftitle.$touched && pasdtls.ftitle.$invalid">This is required.</span>
 		</div>
 		<div class="form-group">
 			<label for="f_name" class="control-label">First Name</label>
-			<input id="f_name" class="form-control" placeholder="First Name" ng-model="usrdata.fname" required>
-			<span  class="glyphicon glyphicon-warning-sign form-control-feedback" ng-show="pasdtls.ftitle.$touched && pasdtls.ftitle.$invalid"></span>
+			<input id="f_name" class="form-control" name="fname" placeholder="First Name" ng-model="usrdata.fname" required>
+			<span style="color:red" ng-show="pasdtls.fname.$touched && pasdtls.fname.$invalid">This is required.</span>
 		</div>
 		<div class="form-group">
 			<label for="l_name" class="control-label">Last Name</label>
-			<input id="l_name" class="form-control" placeholder="Last Name" ng-model="usrdata.lname" required>
+			<input id="l_name" class="form-control" name="lname" placeholder="Last Name" ng-model="usrdata.lname" required>
+			<span style="color:red" ng-show="pasdtls.lname.$touched && pasdtls.lname.$invalid">This is required.</span>
 		</div>
 		<div class="checkbox form-group">
 		  <label class="control-label"><input type="checkbox" ng-click="showffnum = !showffnum" ng-model="usrdata.chkffnum">Are you a member of frequent flyer programme?</label>
 		</div>
 		<div class="form-group"  ng-show="showffnum">
-			<input id="ff_num" class="form-control" placeholder="Frequent Flyer Number" ng-model="usrdata.ffnum"  required>
+			<input id="ff_num" class="form-control" name="ffnum" placeholder="Frequent Flyer Number" ng-model="usrdata.ffnum"  required>
+			<span style="color:red" ng-show="pasdtls.ffnum.$touched && pasdtls.ffnum.$invalid">This is required.</span>
 		</div>
 		<div class="checkbox form-group">
 		  <label class="control-label"><input type="checkbox" ng-click="showfblue = !showfblue" ng-model="usrdata.chkfbluenum">Are you a member of BlueBiz programme?</label>
 		</div>
 		<div class="form-group" ng-show="showfblue">
-			<input id="f_blue" class="form-control" placeholder="Flying Blue Number" ng-model="usrdata.fbluenum"  required>
+			<input id="f_blue" class="form-control" name="fbluenum" placeholder="Flying Blue Number" ng-model="usrdata.fbluenum"  required>
+			<span style="color:red" ng-show="pasdtls.fbluenum.$touched && pasdtls.fbluenum.$invalid">This is required.</span>
 		</div>
 
 		<p><h3>Contact Information</h3></p>
 		<div class="form-group">
 			<label for="u_email" class="control-label">Email Address</label>
-			<input id="u_email"  type="email" class="form-control" placeholder="abc@xyz.com" ng-model="usrdata.email">
+			<input id="u_email"  type="email" class="form-control" name="email" placeholder="abc@xyz.com" ng-model="usrdata.email">
+			<span style="color:red" ng-show="pasdtls.email.$touched && pasdtls.email.$invalid">This is required.</span>
 		</div>
 		<div class="form-group">
 			<label for="c_email" class="control-label">Confirm Email Address</label>
-			<input id="c_email"  type="email" class="form-control" placeholder="abc@xyz.com" ng-model="usrdata.cemail">
+			<input id="c_email"  type="email" class="form-control" name="cemail" placeholder="abc@xyz.com" ng-model="usrdata.cemail" ng-match="usrdata.email">
+			<span style="color:red" data-ng-show="pasdtls.cemail.$error.match">Emails don't match.</span>
 		</div>
 
 		<p><h3>Update via Facebook Messenger</h3></p>
