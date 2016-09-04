@@ -29,14 +29,14 @@
 		  <label class="control-label"><input type="checkbox" ng-click="showffnum = !showffnum" ng-model="usrdata.chkffnum">Are you a member of frequent flyer programme?</label>
 		</div>
 		<div class="form-group"  ng-show="showffnum">
-			<input id="ff_num" class="form-control" name="ffnum" placeholder="Frequent Flyer Number" ng-model="usrdata.ffnum"  required>
+			<input id="ff_num" class="form-control" name="ffnum" placeholder="Frequent Flyer Number" ng-model="usrdata.ffnum"  ng-required="showffnum">
 			<span style="color:red" ng-show="pasdtls.ffnum.$touched && pasdtls.ffnum.$invalid">This is required.</span>
 		</div>
 		<div class="checkbox form-group">
 		  <label class="control-label"><input type="checkbox" ng-click="showfblue = !showfblue" ng-model="usrdata.chkfbluenum">Are you a member of BlueBiz programme?</label>
 		</div>
 		<div class="form-group" ng-show="showfblue">
-			<input id="f_blue" class="form-control" name="fbluenum" placeholder="Flying Blue Number" ng-model="usrdata.fbluenum"  required>
+			<input id="f_blue" class="form-control" name="fbluenum" placeholder="Flying Blue Number" ng-model="usrdata.fbluenum"  ng-required="showfblue">
 			<span style="color:red" ng-show="pasdtls.fbluenum.$touched && pasdtls.fbluenum.$invalid">This is required.</span>
 		</div>
 
