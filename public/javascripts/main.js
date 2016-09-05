@@ -65,9 +65,9 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
         	showfblue : false,
         	chkffnum : false,
         	chkfbluenum : false,
-        	adults : ptype[0],
-        	child : ptype[1],
-        	babies : ptype[2]
+        	adults : util.repeat(ptype[0]),
+        	child : util.repeat(ptype[1]),
+        	babies : util.repeat(ptype[2])
         }
         
         $scope.save = function(){
@@ -118,3 +118,13 @@ app.controller('DeleteUsrDataCtrl', ['$scope', '$resource', '$location', '$route
             });
         }
 }])
+
+var util = {
+	repeat : function(r){
+			var p = []
+        		for(i = 1; i <= ptype[0]; i++){
+				p.push(i)        			
+        		}
+        		return p
+	}
+}
