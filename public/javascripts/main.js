@@ -79,8 +79,7 @@ app.controller('AddUsrDataCtrl', ['$scope', '$resource', '$location',  '$routePa
                     data: $httpParamSerializerJQLike({'sender': $routeParams.sender}),
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(response){
-                	//console.log('response : ====> ' + response)
-                    	//$window.location.href = 'https://www.messenger.com/closeWindow/?image_url=http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png&display_text=startpayment'
+                    	$window.location.href = 'https://www.messenger.com/closeWindow/?image_url=http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png&display_text=startpayment'
                 })
             })
     }
