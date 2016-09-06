@@ -4,9 +4,9 @@
 <p>Sender ID : {{usrdata.sender}}</p>
 <p>Adults_Child_Babies : {{usrdata.passenger}}</p>
 <div class="panel-group">
-	<div class="panel panel-default" ng-repeat="adult in usrdata.adults">
-		<div class="panel-heading" ng-click="on = !on">Passenger {{adult}} (Adult)</div>
-			<div class="panel-body" ng-show="on">
+	<div class="panel panel-default">
+		<div class="panel-heading" ng-click="on = !on">Passenger 1 (Adult)</div>
+			<div class="panel-body">
 			      <form name="pasdtls">
 					<div class="form-group">
 						<label for="title" class="control-label">Title</label>
@@ -60,7 +60,7 @@
 					  <label class="control-label"><input type="checkbox" ng-model="usrdata.offerfbm" value="">Inform me via Messenger about cool offers and deals</label>
 					</div>
 			
-					<input type="button" id="save_btn" class="btn btn-primary" value="Confirm Passanger {{adult}}" ng-click="save()" ng-disabled="pasdtls.$invalid">
+					<input type="button" id="save_btn" class="btn btn-primary" value="Confirm Passanger 1" ng-click="save()" ng-disabled="pasdtls.$invalid">
 				</form>
 			</div>
 		</div>
